@@ -1,0 +1,32 @@
+# Query: 192.168.100.6
+# ContextLines: 1
+
+8 results - 3 files
+
+backend\src\app.js:
+  14  app.use(cors({ origin: ['http://localhost:3000'],
+    credentials: true // Como veo que usas cookie-parser, esto es vital para la seguridad
+frontend\app\page.tsx:
+  162    const cargarDatos = (id: string) => {
+  163:     fetch(`https://wealthsync-backend-d0y9.onrender.com/api/v1/transactions/${id}`)
+  164        .then(res => res.json())
+
+  201  
+  202:     await fetch('https://wealthsync-backend-d0y9.onrender.com/api/v1/transactions', {
+  203        method: 'POST',
+
+  207  
+  208:     await fetch('https://wealthsync-backend-d0y9.onrender.com/api/v1/transactions', {
+
+  250      try {
+  251:       const url = editandoId ? `https://wealthsync-backend-d0y9.onrender.com/api/v1/transactions/${editandoId}` : 'https://wealthsync-backend-d0y9.onrender.com/api/v1/transactions';
+  252        const descFinal = metodoPago === 'efectivo' ? descripcion : `[Tarjeta-${metodoPago}] ${descripcion}`;
+
+  274      if (!confirm("¿Eliminar registro?")) return;
+  275:     await fetch(`https://wealthsync-backend-d0y9.onrender.com/api/v1/transactions/${id}`, { method: 'DELETE' });
+  276      cargarDatos(userId);
+
+frontend\app\login\page.tsx:
+  16      try {
+  17:       const res = await fetch('https://wealthsync-backend-d0y9.onrender.com/api/v1/auth/login', {
+  18          method: 'POST',
