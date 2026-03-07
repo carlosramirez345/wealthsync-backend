@@ -12,8 +12,8 @@ const app = express();
 // Seguridad & Middlewares
 app.use(helmet()); // Protege headers HTTP
 app.use(cors({ 
-  origin: ['http://localhost:3000'],
-  credentials: true // Como veo que usas cookie-parser, esto es vital para la seguridad
+    origin: ['http://localhost:3000', 'https://wealthsync-frontend.vercel.app'],
+    credentials: true // Como veo que usas cookie-parser, esto es vital para la seguridad
 }));app.use(express.json({ limit: '10kb' })); // Prevenir payload inmenso
 app.use(cookieParser()); // Para JWT en HttpOnly cookies
 
