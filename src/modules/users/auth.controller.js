@@ -17,11 +17,11 @@ export const registerUser = async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        // 4. Guardamos al nuevo usuario en los cajones correctos
-        const newUser = await pool.query(
-            'INSERT INTO users (first_name, last_name, email, password_hash) VALUES ($1, $2, $3, $4) RETURNING id, first_name, last_name, email',
-            [first_name || 'Usuario', last_name || 'Prueba', email, hashedPassword]
-        );
+       // 4. Guardamos al nuevo usuario en los cajones correctos
+const newUser = await pool.query(
+    'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email',
+    [first_name || 'Usuario Nuevo', email, hashedPassword]
+);
 
         // 5. Le respondemos al Frontend que todo salió bien
         res.status(201).json({
