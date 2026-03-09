@@ -5,9 +5,12 @@ import dotenv from 'dotenv';
 // Cargamos las variables de tu archivo .env
 dotenv.config();
 
-// Creamos un "Pool" de conexiones a la base de datos usando la llave maestra
+// Creamos un "Pool" de conexiones usando la llave maestra y activando SSL
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false // <--- ¡Esta es la llave mágica de seguridad!
+    }
 });
 
 pool.on('connect', () => {
