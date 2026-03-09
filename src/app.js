@@ -7,7 +7,6 @@ import rateLimit from 'express-rate-limit';
 // import transactionRoutes from './modules/transactions/transactions.routes.js';
 import authRoutes from './modules/users/auth.routes.js';
 import transactionRoutes from './modules/transaction/transaction.routes.js'; // <- NUEVO
-import cors from 'cors';
 const app = express();
 app.use(cors());
 
