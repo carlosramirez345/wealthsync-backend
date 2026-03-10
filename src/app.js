@@ -11,7 +11,6 @@ import subscriptionRoutes from './modules/subscriptions/subscription.routes.js';
 import Subscriptions from './pages/Subscriptions';
 
 // Dentro de tu <Routes> añade esto:
-<Route path="/subscriptions" element={<Subscriptions />} />
 const app = express();
 app.use(cors());
 
