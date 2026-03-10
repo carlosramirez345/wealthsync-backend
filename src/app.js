@@ -7,6 +7,11 @@ import rateLimit from 'express-rate-limit';
 // import transactionRoutes from './modules/transactions/transactions.routes.js';
 import authRoutes from './modules/users/auth.routes.js';
 import transactionRoutes from './modules/transaction/transaction.routes.js'; // <- NUEVO
+import subscriptionRoutes from './modules/subscriptions/subscription.routes.js';
+import Subscriptions from './pages/Subscriptions';
+
+// Dentro de tu <Routes> añade esto:
+<Route path="/subscriptions" element={<Subscriptions />} />
 const app = express();
 app.use(cors());
 
@@ -27,7 +32,8 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/transactions', transactionRoutes); // <- NUEVO
+app.use('/api/v1/transactions', transactionRoutes); 
+app.use('/api/v1/subscriptions', subscriptionRoutes);// <- NUEVO
 // app.use('/api/v1/transactions', transactionRoutes);
 // app.use(errorHandler);
 export default app;
